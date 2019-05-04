@@ -42,7 +42,7 @@ int WorldMap::setSize(int x, int y)
 			}
 		}
 	}
-	for (int n = 0; n < 10; n++) {
+	for (int n = 0; n < 100; n++) {
 		MapItem* itm = new MapItem();
 		itm->pX = rand() % sizeX;
 		itm->pY = rand() % sizeY;
@@ -79,4 +79,30 @@ int WorldMap::findNearestItem(int x, int y)
 	);
 	int ret = pairs.front().first;
 	return ret;
+}
+
+
+void WorldMap::reitemize(int n)
+{
+	for (MapItem* i : items) {
+		delete i;
+	}
+	items.clear();
+
+	for (int i= 0; i< n; i++) {
+		MapItem* itm = new MapItem();
+		itm->pX = rand() % sizeX;
+		itm->pY = rand() % sizeY;
+		items.push_back(itm);
+	}
+	return ;
+}
+
+
+void WorldMap::removeItem(int idx)
+{
+	if (items[idx])
+		//delete items[idx];
+	items.erase(items.begin() + idx);
+	return ;
 }

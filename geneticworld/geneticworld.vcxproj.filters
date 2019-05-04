@@ -30,6 +30,12 @@
     <ClInclude Include="MapItem.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Creature.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Population.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -42,6 +48,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="MapItem.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Creature.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Population.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
