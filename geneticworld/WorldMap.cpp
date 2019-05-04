@@ -30,16 +30,21 @@ int WorldMap::setSize(int x, int y)
 			MapTile *t = new MapTile();
 			float *c = t->getColor();
 			tiles[px*x + py] = t;
+			c[0] = 0.3f;
+			c[1] = 0.3f;
+			c[2] = 0.3f;
+#if 0 //checkerboard
 			if (px % 2) {
-				c[0] = float(py % 2)+0.5f;
-				c[1] = float(py % 2) + 0.5f;
-				c[2] = float(py % 2) + 0.5f;
+				c[0] = float(py % 2)+0.4f;
+				c[1] = float(py % 2) + 0.4f;
+				c[2] = float(py % 2) + 0.4f;
 			}
 			else {
-				c[0] = float((py+1) % 2) + 0.5f;
-				c[1] = float((py+1) % 2) + 0.5f;
-				c[2] = float((py+1) % 2) + 0.5f;
+				c[0] = float((py+1) % 2) + 0.4f;
+				c[1] = float((py+1) % 2) + 0.4f;
+				c[2] = float((py+1) % 2) + 0.4f;
 			}
+#endif
 		}
 	}
 	for (int n = 0; n < 100; n++) {
