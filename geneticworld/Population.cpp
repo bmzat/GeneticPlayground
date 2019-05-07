@@ -26,8 +26,8 @@ int Population::spawn(int n, WorldMap* map)
 
 	for (int i = 0; i< n; i++) {
 		Creature* itm = new Creature();
-		itm->pX = rand() % map->sizeX;
-		itm->pY = rand() % map->sizeY;
+		itm->pX = float(rand() % map->sizeX);
+		itm->pY = float(rand() % map->sizeY);
 		pop.push_back(itm);
 	}
 	return 0;
@@ -43,10 +43,10 @@ int Population::simulateStep()
 		do {
 			valid = true;
 			int dir = rand() % 4;
-			int dist = (map->items[d]->pX - pop[n]->pX)*(map->items[d]->pX - pop[n]->pX) + (map->items[d]->pY - pop[n]->pY)*(map->items[d]->pY - pop[n]->pY);
+			float dist = (map->items[d]->pX - pop[n]->pX)*(map->items[d]->pX - pop[n]->pX) + (map->items[d]->pY - pop[n]->pY)*(map->items[d]->pY - pop[n]->pY);
 			if (dist < 30) {
-				int dx = (map->items[d]->pX - pop[n]->pX);
-				int dy = (map->items[d]->pY - pop[n]->pY);
+				float dx = (map->items[d]->pX - pop[n]->pX);
+				float dy = (map->items[d]->pY - pop[n]->pY);
 				if (abs(dx) >= abs(dy)) {
 					pop[n]->pX += (dx > 0) ? 1 : -1;
 				}

@@ -14,14 +14,14 @@ MapItem::~MapItem()
 }
 
 
-int MapItem::getX()
+float MapItem::getX()
 {
 	// TODO: Fügen Sie hier Ihren Implementierungscode ein..
 	return pX;
 }
 
 
-int MapItem::getY()
+float MapItem::getY()
 {
 	// TODO: Fügen Sie hier Ihren Implementierungscode ein..
 	return pY;

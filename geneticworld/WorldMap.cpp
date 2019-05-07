@@ -49,8 +49,8 @@ int WorldMap::setSize(int x, int y)
 	}
 	for (int n = 0; n < 100; n++) {
 		MapItem* itm = new MapItem();
-		itm->pX = rand() % sizeX;
-		itm->pY = rand() % sizeY;
+		itm->pX = float(rand() % sizeX);
+		itm->pY = float(rand() % sizeY);
 		items.push_back(itm);
 	}
 	return 0;
@@ -64,20 +64,20 @@ int WorldMap::setSize(int x, int y)
 //}
 
 
-int WorldMap::findNearestItem(int x, int y)
+int WorldMap::findNearestItem(float x, float y)
 {
-	std::vector<std::pair<int, int>> pairs;
+	std::vector<std::pair<int, float>> pairs;
 
 	for (unsigned int n = 0; n < items.size(); n++) {
-		std::pair<int, int> p;
-		int distance = (items[n]->pX - x)*(items[n]->pX - x) + (items[n]->pY - y)*(items[n]->pY - y);
+		std::pair<int, float> p;
+		float distance = (items[n]->pX - x)*(items[n]->pX - x) + (items[n]->pY - y)*(items[n]->pY - y);
 		p.first = n;
 		p.second = distance;
 		pairs.push_back(p);
 	}
 	
 
-	sort(pairs.begin(), pairs.end(), [=](std::pair<int, int>& a, std::pair<int, int>& b)
+	sort(pairs.begin(), pairs.end(), [=](std::pair<int, float>& a, std::pair<int, float>& b)
 	{
 		return a.second < b.second;
 	}
@@ -96,8 +96,8 @@ void WorldMap::reitemize(int n)
 
 	for (int i= 0; i< n; i++) {
 		MapItem* itm = new MapItem();
-		itm->pX = rand() % sizeX;
-		itm->pY = rand() % sizeY;
+		itm->pX = float(rand() % sizeX);
+		itm->pY = float(rand() % sizeY);
 		items.push_back(itm);
 	}
 	return ;

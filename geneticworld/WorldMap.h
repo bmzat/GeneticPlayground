@@ -17,7 +17,7 @@ public:
 
 	int setSize(int x, int y);
 //	int findNearesItem();
-	int findNearestItem(int x, int y);
+	int findNearestItem(float x, float y);
 	void reitemize(int n);
 	void removeItem(int idx);
 };

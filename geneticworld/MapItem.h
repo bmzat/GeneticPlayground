@@ -4,10 +4,10 @@ class MapItem
 public:
 	MapItem();
 	~MapItem();
-	int pX;
-	int pY;
+	float pX;
+	float pY;
 
-	int getX();
-	int getY();
+	float getX();
+	float getY();
 };
 

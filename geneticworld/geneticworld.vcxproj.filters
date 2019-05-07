@@ -39,6 +39,9 @@
     <ClInclude Include="Gene.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="vec2.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -14,3 +14,16 @@ Creature::Creature()
 Creature::~Creature()
 {
 }
+
+
+void Creature::simulateStep()
+{
+}
+
+void Creature::checkAffinity(MapItem * item)
+{
+}
+
+void Creature::checkAffinity(Creature * item)
+{
+}
