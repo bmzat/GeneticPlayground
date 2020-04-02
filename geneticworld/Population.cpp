@@ -8,6 +8,7 @@
 Population::Population()
 {
 	step = 0;
+	mNewFood = 250;
 }
 
 
@@ -43,8 +44,8 @@ int Population::simulateStep()
 		do {
 			valid = true;
 			int dir = rand() % 4;
-			float dist = (map->items[d]->pX - pop[n]->pX)*(map->items[d]->pX - pop[n]->pX) + (map->items[d]->pY - pop[n]->pY)*(map->items[d]->pY - pop[n]->pY);
-			if (dist < 30) {
+			float dist = (d>=0)?(map->items[d]->pX - pop[n]->pX)*(map->items[d]->pX - pop[n]->pX) + (map->items[d]->pY - pop[n]->pY)*(map->items[d]->pY - pop[n]->pY):100.0f;
+			if (dist < 45.0f) {
 				float dx = (map->items[d]->pX - pop[n]->pX);
 				float dy = (map->items[d]->pY - pop[n]->pY);
 				if (abs(dx) >= abs(dy)) {
@@ -95,7 +96,7 @@ int Population::simulateStep()
 		} while (!valid);
 
 		//int d = map->findNearestItem(pop[n]->pX, pop[n]->pY);
-		if ((map->items[d]->pX== pop[n]->pX)&& (map->items[d]->pY == pop[n]->pY)) {
+		if ((d>=0)&&(map->items[d]->pX== pop[n]->pX)&& (map->items[d]->pY == pop[n]->pY)) {
 			pop[n]->stamina += 10;
 			pop[n]->food++;
 			if (pop[n]->food >= 2) {
@@ -122,7 +123,16 @@ int Population::simulateStep()
 		pop.end()
 	);
 
-	if (!(step % 20))map->reitemize(250);
+	if (!(step % 20))map->reitemize(mNewFood);
 	// TODO: Fügen Sie hier Ihren Implementierungscode ein..
 	return 0;
+}
+
+int Population::changeNewFood(int delta)
+{
+	mNewFood += delta;
+	if (mNewFood <= 0) {
+		mNewFood = 1;
+	}
+	return mNewFood;
 }

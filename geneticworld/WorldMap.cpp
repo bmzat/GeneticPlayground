@@ -82,17 +82,22 @@ int WorldMap::findNearestItem(float x, float y)
 		return a.second < b.second;
 	}
 	);
-	int ret = pairs.front().first;
+	int ret = -1;
+	if (pairs.size() > 0) {
+		ret = pairs.front().first;
+	}
 	return ret;
 }
 
 
 void WorldMap::reitemize(int n)
 {
+	/*
 	for (MapItem* i : items) {
 		delete i;
 	}
 	items.clear();
+	*/
 
 	for (int i= 0; i< n; i++) {
 		MapItem* itm = new MapItem();

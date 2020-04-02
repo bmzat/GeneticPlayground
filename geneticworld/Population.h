@@ -13,5 +13,8 @@ public:
 	int spawn(int n, WorldMap* map);
 	int simulateStep();
 	int step;
+	int changeNewFood(int delta);
+private:
+	int mNewFood;
 };
 
